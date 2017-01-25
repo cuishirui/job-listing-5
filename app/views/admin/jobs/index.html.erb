@@ -1,0 +1,31 @@
+<table class="table table-boldered">
+  <thead>
+    <tr>
+      <td>
+        标题
+      </td>
+      <td>
+        内容
+      </td>
+      <td>
+        操作
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+    <tr>
+      <td>
+        <%= link_to(job.title, admin_job_path(job))%>
+      </td>
+      <td>
+        <%= job.description%>
+      </td>
+      <td>
+        <%= link_to("Edit", edit_admin_job_path(job))%>
+        <%= link_to("Delete", admin_job_path(job), method: :delete, data: {confirm: " Are you sure"})%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
